@@ -5,13 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Log extends Model
 {
     use HasFactory;
-    
-    function posts() {
-        return $this->belongsToMany('App\Models\Post');
+
+    public $fillable = [
+        'old_value',
+        'new_value',
+    ];
+
+     /**
+     * Get all of the owning loggable models.
+     */
+    public function loggable()
+    {
+        return $this->morphTo();
     }
+
 
     public function logs()
     {

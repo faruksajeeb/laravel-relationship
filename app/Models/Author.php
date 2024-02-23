@@ -5,14 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Author extends Model
 {
     use HasFactory;
+
     public $fillable = [
         'name'
     ];
-    function categories() {
-        return $this->belongsToMany('App\Models\Category');
+
+    function books() {
+        return $this->hasMany('App\Models\Book');
+    }
+
+    public function chapters()
+    {
+        return $this->hasManyThrough('App\Models\Chapter', 'App\Models\Book');
     }
 
     public function logs()
