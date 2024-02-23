@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\ImageController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,4 +20,5 @@ Route::resources([
     'books' =>BookController::class,
     'chapoters' =>ChapterController::class,
     'logs' =>LogController::class,
+    'images' =>ImageController::class,
 ]);
