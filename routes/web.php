@@ -8,6 +8,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,3 +23,5 @@ Route::resources([
     'logs' =>LogController::class,
     'images' =>ImageController::class,
 ]);
+
+Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
